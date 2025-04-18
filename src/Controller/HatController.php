@@ -65,5 +65,18 @@ final class HatController extends AbstractController
             'hatForm' => $hatForm->createView(),
         ]);
     }
+
+
+    #[Route('/hat/delete/{id}', name: 'delete_hat')]
+    public function delete(Hat $hat, EntityManagerInterface $manager): Response
+    {
+        if(!$hat){
+            return $this->redirectToRoute('hats');
+        }
+        $manager->remove($hat);
+        $manager->flush();
+        return $this->redirectToRoute('hats');
+
+    }
 }
 

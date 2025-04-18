@@ -8,6 +8,9 @@
             <h3>je suis le chapeau</h3>
             <p>{{ hat.name }}</p>
             <p>{{ hat.price }}</p>
+            <a href="{{ path('edit_hat', {id: hat.id}) }}">edit</a>
+            <a href="{{ path('delete_hat', {id: hat.id}) }}">delete</a>
+            <a href="{{ path('hats') }}">retour</a>
 
         </div>
 
