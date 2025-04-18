@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <h3>edit hat</h3>
+    {{ form_start(hatForm) }}
+    {{ form_label(hatForm.name) }}
+    {{ form_widget(hatForm.name) }}
+    {{ form_label(hatForm.price) }}
+    {{ form_widget(hatForm.price) }}
+    <button type="submit">send</button>
+    {{ form_end(hatForm) }}
+
+{% endblock %}

@@ -8,6 +8,7 @@
         <p>{{ hat.name }}</p>
         <p>{{ hat.price }}</p>
         <a href="{{ path('show_hat', {id: hat.id}) }}">voir plus</a>
+        <a href="{{ path('edit_hat', {id: hat.id}) }}">edit</a>
     </div>
 {% endfor %}
 {% endblock %}

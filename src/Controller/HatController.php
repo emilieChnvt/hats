@@ -48,6 +48,22 @@ final class HatController extends AbstractController
         ]);
     }
 
-
+    #[Route('/hat/edit/{id}', name: 'edit_hat')]
+    public function edit(Hat $hat, Request $request, EntityManagerInterface $manager): Response
+    {
+        if(!$hat){
+            return $this->redirectToRoute('hats');
+        }
+        $hatForm = $this->createForm(HatType::class, $hat);
+        $hatForm->handleRequest($request);
+        if($hatForm->isSubmitted() && $hatForm->isValid()){
+            $manager->persist($hat);
+            $manager->flush();
+            return $this->redirectToRoute('hats');
+        }
+        return $this->render('hat/edit.html.twig', [
+            'hatForm' => $hatForm->createView(),
+        ]);
+    }
 }
 
