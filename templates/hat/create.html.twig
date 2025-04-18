@@ -1,14 +1,22 @@
 {% extends 'base.html.twig' %}
 
+{% form_theme hatForm 'bootstrap_5_layout.html.twig' %}
+
 
 {% block body %}
 
-{{ form_start(hatForm) }}
-{{ form_label(hatForm.name) }}
+<div class="">
+    {{ form_start(hatForm) }}
+    {{ form_label(hatForm.name) }}
     {{ form_widget(hatForm.name) }}
+
     {{ form_label(hatForm.price) }}
-{{ form_widget(hatForm.price) }}
+    {{ form_widget(hatForm.price) }}
+
+    {{ form_label(hatForm.material) }}
+    {{ form_widget(hatForm.material) }}
     <button type="submit">send</button>
-{{ form_end(hatForm) }}
+    {{ form_end(hatForm) }}
+</div>
 
 {% endblock %}

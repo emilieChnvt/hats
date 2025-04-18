@@ -32,7 +32,7 @@ final class HatController extends AbstractController
         ]);
     }
 
-    #[Route('/hat/create', name: 'create_hat', methods: ['GET', 'POST'])]
+    #[Route('/hat/create', name: 'create_hat')]
     public function create( EntityManagerInterface $manager, Request $request): Response
     {
         $hat = new Hat();

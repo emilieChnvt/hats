@@ -19,6 +19,12 @@ class Hat
     #[ORM\Column]
     private ?float $price = null;
 
+    #[ORM\ManyToOne(inversedBy: 'hat')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Material $material = null;
+
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -47,4 +53,17 @@ class Hat
 
         return $this;
     }
+
+    public function getMaterial(): ?Material
+    {
+        return $this->material;
+    }
+
+    public function setMaterial(?Material $material): static
+    {
+        $this->material = $material;
+
+        return $this;
+    }
+
 }
